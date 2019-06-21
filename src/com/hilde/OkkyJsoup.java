@@ -114,7 +114,7 @@ public void getOkky(String html) {
 		
 		if (null != text) {
 			rep_text = text.replace("<p>", "").replace("</p>", "")
-						   .replace("&nbsp","").replace("<br>", " ").replace("&amp;", "");
+						   .replace("&nbsp;","").replace("<br>", " ").replace("&amp;", "");
 		}
 		
 		return rep_text;
