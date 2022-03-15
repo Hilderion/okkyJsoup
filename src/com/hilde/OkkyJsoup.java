@@ -20,14 +20,14 @@ public class OkkyJsoup {
         List<String> links = new ArrayList<String>();
         List<String> contents = new ArrayList<String>();
 
-        System.out.println("::: OkkyJsoup ::: Ver 0.0.2 :::");
+        System.out.println("::: OkkyJsoup ::: Ver 0.0.4 :::");
         System.out.println("커뮤니티의 최신 글 20개만 받아옵니다.");
-        System.out.println("게시글 / 댓글 내부에 태그가 쓰인 경우엔 그대로 나오므로 주의!");
+        // System.out.println("게시글 / 댓글 내부에 태그가 쓰인 경우엔 그대로 나오므로 주의!");
         System.out.println("==============================\n");
 
         try {
             // Connect With OKKY
-            Document doc = Jsoup.connect(html).timeout(10000).get();
+            Document doc = Jsoup.connect(html).timeout(20000).get();
 
             Elements els = doc.getElementsByTag("ul");
             Element el = els.get(7);
@@ -80,7 +80,7 @@ public class OkkyJsoup {
         List<String> sub_like = new ArrayList<String>();
 
         try {
-            Document doc = Jsoup.connect(html).timeout(5000).get();
+            Document doc = Jsoup.connect(html).maxBodySize(0).timeout(10000).get();
 
             /* LEGACY CODE
             Elements els = doc.select("article[itemprop='articleBody'] p");
@@ -108,7 +108,9 @@ public class OkkyJsoup {
                 }
             }
             for (Element el3 : els3) {
-                content2 = replaceTag(el3.select("p").text());
+                // 22.03.15 : 리플 내용 제대로 가져오지 못하는 문제를 수정함.
+                // content2 = replaceTag(el3.select("p").text());
+                content2 = el3.text();
                 sub_content.add(content2);
             }
 
