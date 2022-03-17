@@ -15,3 +15,9 @@
   - 기존 게시글 불러오는 방식을 수정하였습니다.
   - 게시글 작성자의 좋아요와, 댓글 작성자의 좋아요를 볼 수 있게 되었습니다.
   
+  
+============= VER  0.0.5 =============
+2022.03.15
+
+  - 본문 텍스트 영역의 css selector query를 수정하였습니다. (일부 게시글 내부에 div 태그가 별도 있는 경우 대응)
+  ( $("article[itemprop='articleBody'] p").text() -> $("article[itemprop='articleBody']").text() )
