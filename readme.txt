@@ -17,7 +17,7 @@
   
   
 ============= VER  0.0.5 =============
-2022.03.15
+2022.03.17
 
   - 본문 텍스트 영역의 css selector query를 수정하였습니다. (일부 게시글 내부에 div 태그가 별도 있는 경우 대응)
   ( $("article[itemprop='articleBody'] p").text() -> $("article[itemprop='articleBody']").text() )
