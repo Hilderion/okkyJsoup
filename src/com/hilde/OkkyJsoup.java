@@ -20,7 +20,7 @@ public class OkkyJsoup {
         List<String> links = new ArrayList<String>();
         List<String> contents = new ArrayList<String>();
 
-        System.out.println("::: OkkyJsoup ::: Ver 0.0.4 :::");
+        System.out.println("::: OkkyJsoup ::: Ver 0.0.5 :::");
         System.out.println("커뮤니티의 최신 글 20개만 받아옵니다.");
         // System.out.println("게시글 / 댓글 내부에 태그가 쓰인 경우엔 그대로 나오므로 주의!");
         System.out.println("==============================\n");
@@ -88,7 +88,8 @@ public class OkkyJsoup {
              */
 
             // 22.03.08 EDIT :: $("article[itemprop='articleBody'] p") -> $("article[itemprop='articleBody'] p").text()
-            content = doc.select("article[itemprop='articleBody'] p").text();
+            // 22.03.17 EDIT :: $("article[itemprop='articleBody'] p").text() -> $("article[itemprop='articleBody']").text()
+            content = doc.select("article[itemprop='articleBody']").text();
 
             // Get likes (include Main Article's like)
             Elements likes = doc.getElementsByClass("content-eval-count");
@@ -114,7 +115,7 @@ public class OkkyJsoup {
                 sub_content.add(content2);
             }
 
-            // Get Sub Writer's like
+            // G                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 et Sub Writer's like
             for (int i=1; i<likes.size(); i++) {
                 sub_like.add(likes.get(i).text());
             }
